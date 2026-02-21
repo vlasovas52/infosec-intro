@@ -1,0 +1,247 @@
+---
+# Preamble
+
+## Author
+author:
+  name: Власов Артем Сергеевич
+  degrees: 
+  orcid: 0000-0002-0877-7063
+  email: 1132246841@pfur.ru
+  affiliation:
+    - name: Российский университет дружбы народов
+      country: Российская Федерация
+      postal-code: 117198
+      city: Москва
+      address: ул. Миклухо-Маклая, д. 6
+## Title
+title: "Отчет по лабораторной работе 1"
+subtitle: "Власов Артем Сергеевич"
+license: "CC BY"
+## Generic options
+lang: ru-RU
+number-sections: true
+toc: true
+toc-title: "Содержание"
+toc-depth: 2
+## Crossref customization
+crossref:
+  lof-title: "Список иллюстраций"
+  lot-title: "Список таблиц"
+  lol-title: "Листинги"
+## Bibliography
+bibliography:
+  - bib/cite.bib
+csl: _resources/csl/gost-r-7-0-5-2008-numeric.csl
+## Formats
+format:
+### Pdf output format
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: false
+    toc-depth: 2
+    lof: true # List of figures
+    lot: true # List of tables
+#### Document
+    documentclass: scrreprt
+    papersize: a4
+    fontsize: 12pt
+    linestretch: 1.5
+#### Language
+    babel-lang: russian
+    babel-otherlangs: english
+#### Biblatex
+    cite-method: biblatex
+    biblio-style: gost-numeric
+    biblatexoptions:
+      - backend=biber
+      - langhook=extras
+      - autolang=other*
+#### Misc options
+    csquotes: true
+    indent: true
+    header-includes: |
+      \usepackage{indentfirst}
+      \usepackage{float}
+      \floatplacement{figure}{H}
+      \usepackage[math,RM={Scale=0.94},SS={Scale=0.94},SScon={Scale=0.94},TT={Scale=MatchLowercase,FakeStretch=0.9},DefaultFeatures={Ligatures=Common}]{plex-otf}
+### Docx output format
+  docx:
+    toc: true
+    number-sections: true
+    toc-depth: 2
+---
+
+# Цель работы
+
+Установить Rocky Linux на виртуальную машину.
+
+# Задание
+
+Установить и настроить опреационную систему, выполнить задание и ответить на контрольные вопросы
+
+# Выполнение лабораторной работы 1.
+
+Создадим новую виртуальную машину с помощью файла образа.
+
+Создаем виртуальную машину. ([рис. @fig-001]).
+
+![Подключение образа](image/1.png){#fig:001 width=70%}
+
+Задаем первичные настройки машины. ([рис. @fig-002]).
+
+![Настраиваем ОЗУ и ядра процессора](image/2.png){#fig:002 width=70%}
+
+![Добавляем виртуальный диск](image/3.png){#fig:003 width=70%}
+
+Запуск и настройка ОС. ([рис. @fig-004]).
+
+![Запуск](image/4.png){#fig:004 width=70%}
+
+![Настройка языка](image/5.png){#fig:005 width=70%}
+
+![Добавление стандартных утилит](image/6.png){#fig:006 width=70%}
+
+![Отключение KDUMP](image/7.png){#fig:007 width=70%}
+
+![Добавление диска](image/8.png){#fig:008 width=70%}
+
+![Настройка сети](image/9.png){#fig:009 width=70%}
+
+![ROOT](image/10.png){#fig:010 width=70%}
+
+![Настройка пользователя](image/11.png){#fig:011 width=70%}
+
+![Проверка всех настроек](image/12.png){#fig:012 width=70%}
+
+![Завершение установки](image/13.png){#fig:013 width=70%}
+
+![Подключение образа дополнений гостевой ОС](image/14.png){#fig:014 width=70%}
+
+#Выполение домашнего задания
+
+![Команда для просмотра технических характеристик](image/16.png){#fig:016 width=70%}
+
+![Поиск семи элементов в тех. характеристиках](image/17.png){#fig:017 width=70%}
+
+# Контрольные вопросы
+
+## 1. Команды терминала
+
+### • Для получения справки по команде
+- man <команда> - отображает официальное руководство  
+  Пример: man ls
+  ![Man](image/18.png){#fig:018 width=70%}
+- <команда> --help или -h - краткая справка по использованию  
+  Пример: ls --help
+
+### • Для перемещения по файловой системе
+- pwd - показать текущую директорию  
+  Пример: pwd → /home/user
+- cd <путь> - сменить директорию  
+  Примеры: cd /var/log, cd ~, cd .., cd -
+  ![Cd](image/19.png){#fig:019 width=70%}
+
+### • Для просмотра содержимого каталога
+- ls - список файлов и каталогов  
+  Примеры: ls, ls -l, ls -a, ls -lh, ls /etc
+  ![Ls](image/20.png){#fig:020 width=70%}
+
+### • Для определения объёма каталога
+- du - показывает занимаемый объём  
+  Примеры: du -sh /home/user, du -sh *, du -ah /dir
+  ![du](image/21.png){#fig:021 width=70%}
+
+### • Для создания/удаления каталогов/файлов
+Создание:
+- mkdir <имя> - создать каталог  
+  Пример: mkdir new_folder
+- touch <имя> - создать файл  
+  Пример: touch file.txt
+
+Удаление:
+- rm <файл> - удалить файл  
+  Пример: rm old_file.txt
+- rm -r <каталог> - удалить каталог рекурсивно  
+  Пример: rm -r old_folder
+  ![Удаление и создание файлов и каталогов](image/22.png){#fig:022 width=70%}
+
+### • Для задания определённых прав на файл/каталог
+- chmod - изменяет права доступа  
+  Примеры (символьный метод):
+  - chmod u+x script.sh - дать владельцу право на выполнение
+  - chmod go-w file.txt - забрать право на запись у группы и остальных
+  - chmod a+r file.txt - дать право на чтение всем
+  
+  Пример (цифровой метод):
+  - chmod 755 script.sh - владелец: rwx, группа: r-x, остальные: r-x
+  - chmod 644 config.txt - владелец: rw-, группа: r--, остальные: r--
+  ![chmod](image/23.png){#fig:023 width=70%}
+
+### • Для просмотра истории команд
+- history - выводит список всех выполненных команд с номерами
+- !<номер> - выполнить команду из истории под указанным номером  
+  Пример: !205
+- !! - выполнить предыдущую команду
+- Ctrl + R - reverse search, поиск по истории команд
+![History](image/24.png){#fig:024 width=70%}
+	
+## 2. Учётная запись пользователя
+
+Учётная запись пользователя содержит информацию:
+- Имя пользователя (логин)
+- Зашифрованный пароль (хранится в /etc/shadow)
+- User ID (UID) - уникальный числовой идентификатор
+- Group ID (GID) - идентификатор основной группы
+- GECOS - комментарий (обычно ФИО)
+- Домашний каталог
+- Командная оболочка (shell) по умолчанию
+
+Команды для просмотра информации:
+- id - показывает UID, GID и группы пользователя
+- whoami - показывает имя текущего пользователя
+- getent passwd <username> - отображает запись о пользователе
+![Данные о пользователе](image/25.png){#fig:025 width=70%}
+## 3. Файловая система
+
+Файловая система - это способ организации, хранения и управления данными на носителе.
+
+Примеры с характеристикой:
+- ext4 - стандартная, надежная журналируемая ФС для Linux
+- XFS - высокопроизводительная ФС, отлично для больших файлов
+- Btrfs - современная ФС с поддержкой снимков и сжатия
+- vfat/fat32 - простая ФС, совместимая с Windows, macOS и Linux
+
+## 4. Просмотр подмонтированных файловых систем
+
+- mount - показывает все смонтированные файловые системы
+- findmnt - современная утилита, показывает дерево монтирования
+- df -h - показывает список ФС с размерами в удобном формате
+![findmnt](image/26.png){#fig:026 width=70%}
+## 5. Удаление зависшего процесса
+
+1. Найти PID процесса:
+   - ps aux | grep <имя_процесса>
+   - top или htop
+
+2. Завершить процесс:
+   - kill <PID> - корректное завершение
+   - kill -9 <PID> - принудительное завершение
+
+3. Пример:
+   ```bash
+   ps aux | grep firefox
+   kill 1234
+   kill -9 1234
+   ![kill](image/28.png){#fig:028 width=70%}
+
+
+# Выводы
+
+Мы установили ОС на виртуальную машину, выполнили задание и ответили на контрольные вопросы.
+
+
+# Список литературы{.unnumbered}
+
+::: {#refs}
+:::
